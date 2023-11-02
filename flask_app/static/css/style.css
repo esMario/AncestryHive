@@ -1,0 +1,16 @@
+:root {
+    --text: #000000;
+    --background: #fcfbf8;
+    --primary: #fdf186;
+    --secondary: #fbefcb;
+    --accent: #f9bb01;
+}
+
+.logo {
+    transform: translateY(-2px);
+}
+
+.icon {
+    height: 42px;
+    width: 42px;
+}
