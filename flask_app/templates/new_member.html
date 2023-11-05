@@ -40,6 +40,14 @@
                             {% endfor %}
                         {% endif %}
                     {% endwith %}
+                    <label for="generation" class="h5 form-label text-dark">Generation:</label>
+                    <select class="form-select mb-3" name="generation">
+                        <option selected>Open this select menu</option>
+                        <option value="gradparent">Grandparent</option>
+                        <option value="parent">Parent</option>
+                        <option value="sibling">Silbling</option>
+                        <option value="children">Nephew/Neice</option>
+                    </select>
                     <label for="full_name" class="h5 form-label text-dark">Full Name:</label>
                     <input type="text" class="form-control mb-3" name="full_name">
                     <label for="place_of_birth" class="h5 form-label text-dark">Place of Birth:</label>

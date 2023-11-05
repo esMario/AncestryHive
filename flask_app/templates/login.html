@@ -20,9 +20,9 @@
 
     <div class="d-flex flex-column justify-content-around mt-2">
         <div class="d-flex flex-row justify-content-between">
-            <form class="text-start p-4 col-5" action="/register" method="post">
+            <form class="text-start p-4 col-5" action="/user_register" method="post">
                     <p class="h1 mb-4">Create a Account</p>
-                    {% with messages = get_flashed_messages(category_filter=["register"]) %}
+                    {% with messages = get_flashed_messages(category_filter=["user_register"]) %}
                         {% if messages %}
                             {% for message in messages %}
                                 <p class="text-danger">{{ message }}</p>
@@ -38,9 +38,9 @@
                     <input type='submit' value='Register' class="btn" style="background-color: var(--primary);">
             </form>
             
-            <form class="text-start p-4 col-5" action="/login" method="post">
+            <form class="text-start p-4 col-5" action="/user_login" method="post">
                     <p class="h1 mb-4">Existing Login</p>
-                    {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                    {% with messages = get_flashed_messages(category_filter=["user_login"]) %}
                         {% if messages %}
                             {% for message in messages %}
                                 <p class='text-danger'>{{ message }}</p>
