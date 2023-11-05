@@ -28,7 +28,11 @@
                                 <p class="text-danger">{{ message }}</p>
                             {% endfor %}
                         {% endif %}
-                    {% endwith %}
+                        {% endwith %}
+                    <label for="first_name" class="h5 form-label text-dark">First Name:</label>
+                    <input type="text" class="form-control mb-3" name="first_name">
+                    <label for="last_name" class="h5 form-label text-dark">Last Name:</label>
+                    <input type="text" class="form-control mb-3" name="last_name">
                     <label for="email" class="h5 form-label text-dark">Email:</label>
                     <input type="text" class="form-control mb-3" name="email">
                     <label for="password" class="h5 form-label text-dark">Password:</label>

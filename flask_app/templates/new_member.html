@@ -31,7 +31,7 @@
 
     <div class="d-flex flex-column justify-content-around mt-2">
         <div class="d-flex flex-row justify-content-between">
-            <form class="text-start p-4 col-5" action="/new_member" method="post">
+            <form class="text-start p-4 col-5" action="/new_member/new" method="post">
                     <p class="h1 mb-4">New Hive Member</p>
                     {% with messages = get_flashed_messages(category_filter=["new_member"]) %}
                         {% if messages %}
@@ -42,18 +42,18 @@
                     {% endwith %}
                     <label for="generation" class="h5 form-label text-dark">Generation:</label>
                     <select class="form-select mb-3" name="generation">
-                        <option selected>Open this select menu</option>
+                        <option selected value="">Open this select menu</option>
                         <option value="gradparent">Grandparent</option>
                         <option value="parent">Parent</option>
                         <option value="sibling">Silbling</option>
                         <option value="children">Nephew/Neice</option>
                     </select>
-                    <label for="full_name" class="h5 form-label text-dark">Full Name:</label>
-                    <input type="text" class="form-control mb-3" name="full_name">
+                    <label for="first_name" class="h5 form-label text-dark">First Name:</label>
+                    <input type="text" class="form-control mb-3" name="first_name">
+                    <label for="last_name" class="h5 form-label text-dark">Last Name:</label>
+                    <input type="text" class="form-control mb-3" name="last_name">
                     <label for="place_of_birth" class="h5 form-label text-dark">Place of Birth:</label>
                     <input type="text" class="form-control mb-3" name="place_of_birth">
-                    <label for="occupation" class="h5 form-label text-dark">Occupation:</label>
-                    <input type="text" class="form-control mb-4" name="occupation">
                     <label for="date_of_birth" class="h5 form-label text-dark">Date of Birth:</label>
                     <input type="date" class="form-control mb-4" name="date_of_birth">
                     <label for="age" class="h5 form-label text-dark">Age:</label>

@@ -31,7 +31,7 @@
 
     <div class="d-flex flex-column justify-content-around mt-2">
         <div class="d-flex flex-row justify-content-between">
-            <form class="text-start p-4 col-5" action="/edit_member" method="post">
+            <form class="text-start p-4 col-5" action="/edit_member/{{id.id}}/update" method="post">
                     <p class="h1 mb-4">Edit Hive Member</p>
                     {% with messages = get_flashed_messages(category_filter=["edit_member"]) %}
                         {% if messages %}
@@ -40,25 +40,30 @@
                             {% endfor %}
                         {% endif %}
                     {% endwith %}
+
+                    {% for family in family %}
+                    <input type="hidden" name="id" value="{{family.id}}">
                     <label for="generation" class="h5 form-label text-dark">Generation:</label>
                     <select class="form-select mb-3" name="generation">
-                        <option selected>Open this select menu</option>
+                        <option selected value="{{family.generation}}">{{family.generation}}</option>
                         <option value="gradparent">Grandparent</option>
                         <option value="parent">Parent</option>
                         <option value="sibling">Silbling</option>
                         <option value="children">Nephew/Neice</option>
                     </select>
-                    <label for="full_name" class="h5 form-label text-dark">Full Name:</label>
-                    <input type="text" class="form-control mb-3" name="full_name">
+                    <label for="first_name" class="h5 form-label text-dark">First Name:</label>
+                    <input type="text" class="form-control mb-3" name="first_name" value="{{family.first_name}}">
+                    <label for="last_name" class="h5 form-label text-dark">Last Name:</label>
+                    <input type="text" class="form-control mb-3" name="last_name" value="{{family.last_name}}">
                     <label for="place_of_birth" class="h5 form-label text-dark">Place of Birth:</label>
-                    <input type="text" class="form-control mb-3" name="place_of_birth">
-                    <label for="occupation" class="h5 form-label text-dark">Occupation:</label>
-                    <input type="text" class="form-control mb-4" name="occupation">
+                    <input type="text" class="form-control mb-3" name="place_of_birth" value="{{family.place_of_birth}}">
                     <label for="date_of_birth" class="h5 form-label text-dark">Date of Birth:</label>
-                    <input type="date" class="form-control mb-4" name="date_of_birth">
+                    <input type="date" class="form-control mb-4" name="date_of_birth" value="{{family.date_of_birth}}">
                     <label for="age" class="h5 form-label text-dark">Age:</label>
-                    <input type="text" class="form-control mb-4" name="age">
+                    <input type="text" class="form-control mb-4" name="age" value="{{family.age}}">
+                    {% endfor %}
                     <input type='submit' value='Submit' class="btn" style="background-color: var(--primary);">
+
             </form>
         </div>
     </div>

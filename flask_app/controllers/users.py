@@ -19,7 +19,8 @@ def user_register():
     if not User.validate_register(request.form):
         return redirect('/login')
     data ={
-        "full_name": request.form['full_name'],
+        "first_name": request.form['first_name'],
+        "last_name": request.form['last_name'],
         "email": request.form['email'],
         "password": bcrypt.generate_password_hash(request.form['password'])
     }

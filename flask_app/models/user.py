@@ -6,7 +6,8 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 class User:
     def __init__( self , data ):
         self.id = data['id']
-        self.full_name = data['full_name']
+        self.first_name = data['first_name']
+        self.last_name = data['last_name']
         self.email = data['email']
         self.password = data['password']
         self.created_at = data['created_at']
@@ -14,7 +15,7 @@ class User:
 
     @classmethod
     def save(cls,data):
-        query = "INSERT INTO users (email, password) VALUES(%(email)s, %(password)s)"
+        query = "INSERT INTO users (first_name, last_name, email, password) VALUES(%(first_name)s, %(last_name)s, %(email)s, %(password)s)"
         return connectToMySQL('ancestryhive').query_db(query,data)
 
     @classmethod
@@ -36,13 +37,18 @@ class User:
         results = connectToMySQL('ancestryhive').query_db(query,data)
         return cls(results[0])
 
-
     @staticmethod
     def validate_register(user):
         is_valid = True
         query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL('ancestryhive').query_db(query,user)
         
+        if len(user['first_name']) < 2:
+            flash("First name needs 2 characters or more", "user_register")
+            is_valid = False
+        if len(user['last_name']) < 2:
+            flash("Last name needs 2 characters or more", "user_register")
+            is_valid = False
         if len(results) >= 1:
             flash("Email already in use", "user_register")
             is_valid=False
