@@ -11,8 +11,18 @@ def index():
     return render_template('index.html')
 
 @app.route('/login')
-def login():
+def login_page():
     return render_template('login.html')
+
+@app.route('/profile')
+def user_profile():
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data ={
+        "id": session['user_id'],
+    }
+
+    return render_template('profile.html', user = User.get_by_id(data))
 
 @app.route('/user_register', methods=['POST'])
 def user_register():
@@ -27,6 +37,20 @@ def user_register():
     id = User.save(data)
     session['user_id'] = id
     return redirect('/hive')
+
+@app.route('/user_update', methods=['POST'])
+def user_update():
+    if not User.validate_update(request.form):
+        return redirect('/profile')
+    data ={
+        "first_name": request.form['first_name'],
+        "last_name": request.form['last_name'],
+        "email": request.form['email'],
+        "password": bcrypt.generate_password_hash(request.form['password']),
+        "id": session['user_id']
+    }
+    User.update(data)
+    return redirect('/profile')
 
 @app.route('/user_login', methods=['POST'])
 def user_login():

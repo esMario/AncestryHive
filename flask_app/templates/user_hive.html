@@ -21,7 +21,6 @@
                     <li class="nav-item pe-2" >|</li>
                     <li class="nav-item"><a href="/profile" class="pe-2">Profile</a></li>
                 </ul>
-                
                 <a href="/logout" class="">
                     <button type="button" class="btn" style="background-color: var(--primary);">Logout</button>
                 </a>
@@ -29,45 +28,46 @@
         </div>
     </nav>
 
-    <div class="d-flex flex-column align-items-center">
-        <div class="d-flex flex-column align-items-center mb-3 border-bottom border-bottom border-dark border-opacity-25 col-3" >
-            <p class="h2" >This is {{user.last_name}}'s Hive</p>
+    <div class="d-flex flex-column align-items-center" >
+        <div class="d-flex flex-column align-items-center mb-3 border-bottom border-bottom border-dark border-opacity-25 col-6" >
+            <p class="h2 pt-2" >This is {{user.last_name}}'s Hive</p>
             <p class="h6">Hello, {{user.first_name}}</p>
         </div>
 
-        <div class="family-tree">
+        <div class="family-tree pt-4">
             <ul class="generation">
                 {% for family in family %}
-                {% if family.generation == 'gradparent ' %}
-                    <li class="member gradparent"><a href="show_member/{{family.id}}">{{family.first_name}}</a></li>
+                {% if family.generation == 'gradparent' %}
+                    <li class="member gradparent mb-4"><a href="show_member/{{family.id}}"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/grandparent_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
             <ul class="generation">
                 {% for family in family %}
                 {% if family.generation == 'parent' %}
-                    <li class="member parent"><a href="show_member/{{family.id}}">{{family.first_name}}</a></li>
+                    <li class="member parent mb-4"><a href="show_member/{{family.id}}"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/parent_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
             <ul class="generation">
-                <li class="member sibling">{{user.first_name}}</li>
+                <li class="member sibling mb-4"><a href="/profile"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/user_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{user.first_name}}</span></a></li>
+                
                 {% for family in family %}
                 {% if family.generation == 'sibling' %}
-                    <li class="member sibling"><a href="show_member/{{family.id}}">{{family.first_name}}</a></li>
+                    <li class="member sibling mb-4"><a href="show_member/{{family.id}}"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/sibling_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
             <ul class="generation">
                 {% for family in family %}
                 {% if family.generation == 'children' %}
-                    <li class="member children"><a href="show_member/{{family.id}}">{{family.first_name}}</a></li>
+                <li class="member children"><a href="show_member/{{family.id}}"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/child_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
         </div>
 
-        <div class="d-flex flex-column align-items-center border-top border-dark border-opacity-25 col-12 mt-3 p-2" >
+        <div class="d-flex flex-column align-items-center border-top border-dark border-opacity-25 col-12 mt-5 p-2" >
             <a href="/new_member">
                 <button type="button" class="btn btn-light mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">

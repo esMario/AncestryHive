@@ -20,7 +20,8 @@ class User:
 
     @classmethod
     def update(cls,data):
-        query = "UPDATE users SET email = %(email)s WHERE id = %(id)s"
+        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, password = %(password)s WHERE id = %(id)s"
+        print(query)
         return connectToMySQL('ancestryhive').query_db(query,data)
 
     @classmethod
@@ -68,4 +69,37 @@ class User:
             flash("Comfirm password does not match", "user_register")
             is_valid = False
         return is_valid
+    
+    @staticmethod
+    def validate_update(data):
+        is_valid = True
+        query = "SELECT * FROM users WHERE email = %(email)s;"
+        results = connectToMySQL('ancestryhive').query_db(query,data)
+        
+        if len(data['first_name']) < 2:
+            flash("First name needs 2 characters or more", "user_edit")
+            is_valid = False
+        if len(data['last_name']) < 2:
+            flash("Last name needs 2 characters or more", "user_edit")
+            is_valid = False
+        if len(results) >= 1:
+            flash("Email already in use", "user_edit")
+            is_valid=False
+        if not EMAIL_REGEX.match(data['email']):
+            flash("Invalid email", "user_edit")
+            is_valid=False
+        if len(data['password']) < 8:
+            flash("Password needs 8 characters or more", "user_edit")
+            is_valid = False
+        if not any(char.isdigit() for char in data['password']):
+            flash('Password should have at least one number', "user_edit")
+            is_valid = False
+        if not any(char.isupper() for char in data['password']):
+            flash('Password should have at least one uppercase letter', "user_edit")
+            is_valid = False
+        if data['password'] != data['confirm']:
+            flash("Comfirm password does not match", "user_edit")
+            is_valid = False
+        return is_valid
+        
     
