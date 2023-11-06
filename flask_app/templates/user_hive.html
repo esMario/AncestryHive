@@ -38,30 +38,30 @@
             <ul class="generation">
                 {% for family in family %}
                 {% if family.generation == 'gradparent' %}
-                    <li class="member gradparent mb-4"><a href="show_member/{{family.id}}"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/grandparent_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
+                    <li class="member gradparent mb-4"><a href="show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/grandparent_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
             <ul class="generation">
                 {% for family in family %}
                 {% if family.generation == 'parent' %}
-                    <li class="member parent mb-4"><a href="show_member/{{family.id}}"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/parent_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
+                    <li class="member parent mb-4"><a href="show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/parent_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
             <ul class="generation">
-                <li class="member sibling mb-4"><a href="/profile"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/user_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{user.first_name}}</span></a></li>
+                <li class="member sibling mb-4"><a href="/profile" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/user_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{user.first_name}}</span></a></li>
                 
                 {% for family in family %}
                 {% if family.generation == 'sibling' %}
-                    <li class="member sibling mb-4"><a href="show_member/{{family.id}}"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/sibling_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
+                    <li class="member sibling mb-4"><a href="show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/sibling_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
             <ul class="generation">
                 {% for family in family %}
                 {% if family.generation == 'children' %}
-                <li class="member children"><a href="show_member/{{family.id}}"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/child_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
+                <li class="member children"><a href="show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/child_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>

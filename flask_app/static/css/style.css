@@ -32,14 +32,17 @@
 .hex-border {
   position: absolute;
   border: 5px black;
-  top: -25px;
-  left: -14px;
+  top: -24px;
+  left: -13px;
   z-index: 1; 
+  /* display: none; */
 }
 
 .hive-name {
   color: #000000;
   background-color: var(--primary);
+  z-index: 1;
+  
 }
 
 .family-tree {
@@ -120,6 +123,6 @@
 
   .clip-hexagon {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    border: 20 #111;
+    
 }
 

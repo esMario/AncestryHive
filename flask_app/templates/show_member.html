@@ -31,7 +31,7 @@
 
     <div class="d-flex justify-center align-items-center flex-row p-4">
         <img src="https://placehold.co/450x450" alt="..." >
-        <div class="ms-5 ">
+        <div class="ms-5 col-6">
             {% for family in family %}
             <p class="h1">{{family.first_name}} {{family.last_name}}</p>
             <p class="h6">From {{family.last_name}}'s Hive</p>
@@ -39,7 +39,11 @@
             <p>Place of Birth: <b>{{family.place_of_birth}}</b> </p>
             <p>Date of Birth: <b>{{family.date_of_birth}}</b> </p>
             <p>Age: <b>{{family.age}}</b> </p>
-            <a href="/edit_member/{{family.id}}">+ Edit Member</a>
+            <div class="d-flex justify-content-between">
+                <a href="/edit_member/{{family.id}}">+ Edit Member</a>
+                <a href="/delete_member/{{family.id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete?')">- Delete Member</a>
+            </div>
+            
             {% endfor %}
         </div>
     </div>

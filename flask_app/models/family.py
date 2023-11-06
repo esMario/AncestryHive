@@ -40,7 +40,12 @@ class Family:
     def update(cls,data):
         query = "UPDATE family_members SET first_name = %(first_name)s, last_name = %(last_name)s, generation = %(generation)s, place_of_birth = %(place_of_birth)s, date_of_birth = %(date_of_birth)s, age = %(age)s WHERE id = %(id)s"
         print(query)
-        return connectToMySQL('ancestryhive').query_db(query,data)     
+        return connectToMySQL('ancestryhive').query_db(query,data)
+
+    @classmethod
+    def delete(cls,data):
+        query = "DELETE FROM family_members WHERE id = %(id)s"
+        return connectToMySQL('ancestryhive').query_db(query,data)
 
     @staticmethod
     def validate_new_member(data):

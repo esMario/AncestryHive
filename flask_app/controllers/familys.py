@@ -70,3 +70,13 @@ def edit_member_update(fm_id):
         }
     Family.update(data)
     return redirect(f'/show_member/{id}')
+
+@app.route('/delete_member/<int:fm_id>')
+def delete_member(fm_id):
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data = {
+        "id" : fm_id
+    }
+    Family.delete(data)
+    return redirect('/hive')
