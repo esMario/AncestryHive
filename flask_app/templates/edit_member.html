@@ -6,6 +6,7 @@
     <title>Ancestry Hive</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="../static/images/icons/bee.png">
 </head>
 
 
@@ -48,7 +49,7 @@
                     <label for="generation" class="h5 form-label text-dark">Generation:</label>
                     <select class="form-select mb-3" name="generation">
                         <option selected value="{{family.generation}}">{{family.generation}}</option>
-                        <option value="gradparent">Grandparent</option>
+                        <option value="grandparent">Grandparent</option>
                         <option value="parent">Parent</option>
                         <option value="sibling">Silbling</option>
                         <option value="children">Nephew/Neice</option>

@@ -14,6 +14,11 @@ def hive():
     }
     return render_template('user_hive.html', user = User.get_by_id(data), family = Family.get_all_by_users_id(data))
 
+@app.route('/bee_connect')
+def bee_connect():
+    
+    return render_template('bee_connect.html', family = Family.get_all_members())
+
 @app.route('/new_member')
 def new_member():
     if 'user_id' not in session:

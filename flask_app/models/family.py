@@ -20,7 +20,16 @@ class Family:
     def save(cls,data):
         query = "INSERT INTO family_members (generation, first_name, last_name, place_of_birth, date_of_birth, age, users_id) VALUES(%(generation)s, %(first_name)s, %(last_name)s, %(place_of_birth)s, %(date_of_birth)s, %(age)s, %(users_id)s)"
         return connectToMySQL('ancestryhive').query_db(query,data)
-    
+
+    @classmethod
+    def get_all_members(cls):
+        query = "SELECT * FROM family_members"
+        results = connectToMySQL('ancestryhive').query_db(query)
+        members = []
+        for family_members in results:
+            members.append(cls(family_members))
+        return members
+
     @classmethod
     def get_all_by_users_id(cls,data):
         query = "SELECT * FROM family_members WHERE users_id = %(id)s;"

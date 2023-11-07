@@ -6,6 +6,7 @@
     <title>Ancestry Hive</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="../static/images/icons/bee.png">
 </head>
 
 
@@ -39,8 +40,8 @@
         <div class="family-tree pt-4">
             <ul class="generation">
                 {% for family in family %}
-                {% if family.generation == 'gradparent' %}
-                    <li class="member gradparent mb-4"><a href="show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/grandparent_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
+                {% if family.generation == 'grandparent' %}
+                    <li class="member grandparent mb-4"><a href="show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/grandparent_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
@@ -63,7 +64,7 @@
             <ul class="generation">
                 {% for family in family %}
                 {% if family.generation == 'children' %}
-                <li class="member children"><a href="show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/child_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
+                <li class="member children"><a href="show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border"><img src="../static/images/children_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
             </ul>

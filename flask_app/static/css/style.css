@@ -47,7 +47,6 @@
   color: #000000;
   background-color: var(--primary);
   z-index: 1;
-  
 }
 
 .family-tree {
@@ -61,6 +60,43 @@
     flex-direction: row;
     justify-content: center;
     list-style: none;
+  }
+
+  .member-x {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    margin: 0px 10px;
+    position: relative;
+  }
+
+  .hex-border-x {
+    position: absolute;
+    left: -13px;
+    z-index: 1; 
+    /* display: none; */
+  }
+
+  .hive-name-x {
+    position: absolute;
+    padding: 20px;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .member-x:hover .hive-name-x {
+    visibility: visible;
+    opacity: 1;
   }
   
   .member {
