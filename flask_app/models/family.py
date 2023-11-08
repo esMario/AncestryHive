@@ -56,6 +56,7 @@ class Family:
         query = "DELETE FROM family_members WHERE id = %(id)s"
         return connectToMySQL('ancestryhive').query_db(query,data)
 
+
     @staticmethod
     def validate_new_member(data):
         is_valid = True

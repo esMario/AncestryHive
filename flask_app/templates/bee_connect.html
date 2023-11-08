@@ -38,7 +38,7 @@
             <ul class="container d-flex justify-content-center align-items-center flex-wrap">
                 {% for family in family %}
                 {% if family.place_of_birth == 'Texas' %}
-                    <li class="member-x "><a href="#" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border-x"><img src="../static/images/{{family.generation}}_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name-x">{{family.first_name}}</span></a></li>
+                    <li class="member-x "><a href="/show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border-x"><img src="../static/images/{{family.generation}}_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name-x">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
         </div>
@@ -47,7 +47,7 @@
             <ul class="container d-flex justify-content-center align-items-center flex-wrap">
                 {% for family in family %}
                 {% if family.place_of_birth == 'Michigan' %}
-                    <li class="member-x "><a href="#" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border-x"><img src="../static/images/{{family.generation}}_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name-x">{{family.first_name}}</span></a></li>
+                    <li class="member-x "><a href="/show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border-x"><img src="../static/images/{{family.generation}}_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name-x">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
         </div>
@@ -56,7 +56,7 @@
             <ul class="container d-flex justify-content-center align-items-center flex-wrap">
                 {% for family in family %}
                 {% if family.place_of_birth == 'Colorado' %}
-                    <li class="member-x "><a href="#" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border-x"><img src="../static/images/{{family.generation}}_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name-x">{{family.first_name}}</span></a></li>
+                    <li class="member-x "><a href="/show_member/{{family.id}}" class="text-decoration-none"><img src="../static/images/hexborder.png" class="hex-border-x"><img src="../static/images/{{family.generation}}_bee.png" class="icon-md clip-hexagon"><br><br><span class="hive-name-x">{{family.first_name}}</span></a></li>
                 {% endif %}
                 {% endfor %}
         </div>

@@ -44,11 +44,17 @@ def new_member_new():
 @app.route('/show_member/<int:fm_id>')
 def show_member(fm_id):
     if 'user_id' not in session:
-        return redirect('/logout')
+        return redirect('/logout')    
     data = {
         "id" : fm_id
-    }    
-    return render_template('show_member.html', family = Family.get_by_id(data))
+    }
+    
+    family = Family.get_by_id(data)
+    mem_users_id = family[0]['users_id']
+    if session['user_id'] != mem_users_id:
+        return redirect('/hive')
+    
+    return render_template('show_member.html', family = family )
 
 @app.route('/edit_member/<int:fm_id>')
 def edit_member(fm_id):
