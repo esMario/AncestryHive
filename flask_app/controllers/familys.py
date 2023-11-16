@@ -1,4 +1,4 @@
-from flask import render_template, redirect, session, request
+from flask import render_template, redirect, session, request, url_for
 from flask_app.models.family import Family
 from flask_app.models.user import User
 from flask_app import app
@@ -48,7 +48,6 @@ def show_member(fm_id):
     data = {
         "id" : fm_id
     }
-    
     family = Family.get_by_id(data)
     mem_users_id = family[0]['users_id']
     if session['user_id'] != mem_users_id:
